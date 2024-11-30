@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCC Cafeteria Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            height: 70px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            flex: 1 1 auto;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .menu-btn {
+            display: none;
+        }
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 14px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .menu-icon span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.4s;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        h2 {
+            color: #4CAF50;
+            width: 100%;
+            text-align: center;
+        }
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: calc(33% - 40px);
+        }
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .menu-item span {
+            display: block;
+            text-align: center;
+            margin: 5px 0;
+        }
+        .price {
+            color: #4CAF50;
+        }
+        @media (max-width: 900px) {
+            .menu-item {
+                width: calc(50% - 40px);
+            }
+        }
+        @media (max-width: 600px) {
+            .menu-item {
+                width: 100%;
+            }
+            .menu-icon {
+                display: flex;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            nav a {
+                flex: none;
+                width: 100%;
+                text-align: left;
+                padding-left: 20px;
+            }
+            .menu-btn:checked + .menu-icon + nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imeg\DCC_logo-removebg-preview.png" alt="DCC Logo">
+        <h1>DCC Cafeteria Menu</h1>
+    </header>
+    <input type="checkbox" id="menu-btn" class="menu-btn">
+    <label for="menu-btn" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <nav>
+        <a href="#breakfast" onclick="showSection('breakfast')">Breakfast</a>
+        <a href="#lunch" onclick="showSection('lunch')">Lunch</a>
+        <a href="#snacks" onclick="showSection('snacks')">Snacks</a>
+        <a href="#beverages" onclick="showSection('beverages')">Beverages</a>
+    </nav>
+    <div id="breakfast" class="container">
+        <h2>Breakfast</h2>
+        <div class="menu-item">
+            <img src="imeg\egg.png" alt="Egg Sandwich">
+            <span>Egg Sandwich</span>
+            <span class="price">5 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\Falafel.png" alt="Falafel">
+            <span>Falafel Sandwich</span>
+            <span class="price">3 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\Saled.png" alt="Fruit Salad">
+            <span>Fruit Salad</span>
+            <span class="price">10 SAR</span>
+        </div>
+    </div>
+    <div id="lunch" class="container" style="display: none;">
+        <h2>Lunch</h2>
+        <div class="menu-item">
+            <img src="imeg\Chicken Wrap.jpg" alt="Grilled Chicken Wrap">
+            <span>Grilled Chicken Wrap</span>
+            <span class="price">25 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\kabsa.jpg" alt="kabsa">
+            <span>kabsa</span>
+            <span class="price">20 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\beef burger.jpg" alt="Beef Burger">
+            <span>Beef Burger</span>
+            <span class="price">30 SAR</span>
+        </div>
+    </div>
+    <div id="snacks" class="container" style="display: none;">
+        <h2>Snacks</h2>
+        <div class="menu-item">
+            <img src="imeg\kitkat.png" alt="Kitkat">
+            <span>Kitkat</span>
+            <span class="price">3 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\cheaps.png" alt="Chips">
+            <span>Chips</span>
+            <span class="price">1 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\ice cream.png" alt="ice cream">
+            <span>ice cream</span>
+            <span class="price">2 SAR</span>
+        </div>
+    </div>
+    <div id="beverages" class="container" style="display: none;">
+        <h2>Beverages</h2>
+        <div class="menu-item">
+            <img src="imeg\Coffee-Latte.png" alt="Coffee">
+            <span>Coffee</span>
+            <span class="price">8 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\Tea.png" alt="Tea">
+            <span>Tea</span>
+            <span class="price">3 SAR</span>
+        </div>
+        <div class="menu-item">
+            <img src="imeg\Juices.jpg" alt="Juices">
+            <span>Juices</span>
+            <span class="price">6 SAR</span>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName('container');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            document.getElementById(sectionId).style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
